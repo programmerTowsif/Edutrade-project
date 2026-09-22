@@ -1,0 +1,145 @@
+# 🎓 EduTrade
+
+### Student Marketplace Web Application
+
+> **Buy • Sell • Rent • Lost • Found — Everything Students Need, In One Place.**
+
+EduTrade is a student-focused marketplace designed for university students to **buy, sell, rent, and report lost or found items** within their student community.
+
+---
+
+## 🚀 Features
+
+* 🛒 Student Marketplace
+* 🔎 Search & Filter Posts
+* 📚 Category-based Browsing
+* 💰 Buy & Sell Items
+* 🔄 Rent Items
+* 🔴 Lost & 🟣 Found Posts
+* 👤 Student Registration & Login
+* 📝 Create, Edit & Delete Posts
+* 📋 My Posts
+* 👀 Post Details
+* 🏠 Latest Posts on Home Page
+
+---
+
+## 🛠️ Technologies
+
+* **HTML5**
+* **Tailwind CSS**
+* **JavaScript**
+* **NODEJS Expres**
+* **LOCALSTROE**
+* **Git & GitHub**
+
+---
+
+## 📁 Project Structure
+
+```text
+EduTrade/
+│
+├── images/
+│   └──-------
+│
+├── pages/
+│   ├── create-post
+│   ├── login.html
+│   ├── register.html
+│   ├── profile.html
+│   ├── marketplace.html
+│   ├── create-post.html
+│   ├── my-posts.html
+│   └── post-details.html
+│
+├── js/
+│   ├── navbar.js
+│   ├── login.js
+│   ├── register.js
+│   ├── profile.js
+│   ├── marketplace.js
+│   ├── create-post.js
+│   ├── my-posts.js
+│   ├── post-details.js
+│   └── home.js
+│
+└── README.md
+```
+
+---
+
+## 🔄 How It Works
+
+```text
+Register
+   ↓
+Login
+   ↓
+Create Post
+   ↓
+My Posts
+   ↓
+Marketplace
+   ↓
+Search / Filter
+   ↓
+View Post Details
+```
+
+All posts are stored in **JSON FILE**, and the Marketplace displays posts from all registered students.
+
+---
+
+## 🎯 Project Goal
+
+EduTrade aims to provide a **simple and dedicated marketplace for university students**, reducing the need to search through different social media groups or personal contacts.
+
+---
+
+## 🔮 Future Scope
+
+The project can later be extended with:
+
+* Real Database
+* Backend & REST API
+* Secure Authentication
+* Real Image Upload
+* Wishlist
+* Messaging
+* Buy/Rent Transaction System
+* Notifications
+* Admin Panel
+
+---
+
+## 👨‍🏫 Project Supervisor
+
+**AVISHEK CHOWDHURY**
+Lecturer, Department of CSE
+Premier University
+
+---
+
+## 👨‍💻 Developer Team
+
+| Member     | Responsibility               |
+| ---------- | ---------------------------- |
+| **Towsif** | Frontend & UI & SERVERSITE   |
+| **Sadaf**  | UI DESIGN                    |
+| **ANAS**   | HELPER OF DESIGNER           |
+
+---
+
+## 🎓 Academic Project
+
+**Department:** Computer Science & Engineering
+**University:** Premier University, Chittagong
+
+---
+
+### ❤️ EduTrade
+
+**Everything Students Need, In One Place.**
+
+Built with ❤️ by CSE Students.
