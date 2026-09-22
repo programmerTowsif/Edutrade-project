@@ -44,25 +44,10 @@ EduTrade/
 │   └──-------
 │
 ├── pages/
-│   ├── create-post
-│   ├── login.html
 │   ├── register.html
-│   ├── profile.html
-│   ├── marketplace.html
-│   ├── create-post.html
-│   ├── my-posts.html
-│   └── post-details.html
 │
 ├── js/
-│   ├── navbar.js
-│   ├── login.js
 │   ├── register.js
-│   ├── profile.js
-│   ├── marketplace.js
-│   ├── create-post.js
-│   ├── my-posts.js
-│   ├── post-details.js
-│   └── home.js
 │
 └── README.md
 ```
@@ -126,7 +111,7 @@ Premier University
 | Member     | Responsibility               |
 | ---------- | ---------------------------- |
 | **Towsif** | Frontend & UI & SERVERSITE   |
-| **Sadaf**  | UI DESIGN                    |
+| **Sadaf**  | Frontend & UI DESIGNER       |
 | **ANAS**   | HELPER OF DESIGNER           |
 
 ---
