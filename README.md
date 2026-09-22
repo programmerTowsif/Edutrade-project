@@ -49,13 +49,30 @@ EduTrade/
 │   ├── login.html
 │   ├── home.html
 │   ├── navbar.html
+│   ├── create-post.html
+│   ├── my-posts.html
+│   ├── market-place.html
+│   ├── post-details.html
+│   ├── wishlist.html
+│   ├── footer.html
+│   ├── error.html
+|
 │
 ├── js/
 │   ├── register.js
 │   ├── profile.js
 │   ├── login.js
 │   ├── home.js
-│   ├── navbar.js│
+│   ├── navbar.js
+│   ├── create-post.js
+│   ├── my-posts.js
+│   ├── market-place.js
+│   ├── post-details.js
+│   ├── wishlist.js
+│   ├── footer.js
+│   ├── error.js
+|
+|── server.js
 └── README.md
 ```
 
