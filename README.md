@@ -45,9 +45,11 @@ EduTrade/
 │
 ├── pages/
 │   ├── register.html
+│   ├── profile.html
 │
 ├── js/
 │   ├── register.js
+│   ├── profile.js
 │
 └── README.md
 ```
