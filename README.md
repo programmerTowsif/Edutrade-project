@@ -46,10 +46,14 @@ EduTrade/
 ├── pages/
 │   ├── register.html
 │   ├── profile.html
+│   ├── login.html
+│   ├── home.html
 │
 ├── js/
 │   ├── register.js
 │   ├── profile.js
+│   ├── login.js
+│   ├── home.html
 │
 └── README.md
 ```
