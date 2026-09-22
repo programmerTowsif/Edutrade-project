@@ -48,13 +48,14 @@ EduTrade/
 │   ├── profile.html
 │   ├── login.html
 │   ├── home.html
+│   ├── navbar.html
 │
 ├── js/
 │   ├── register.js
 │   ├── profile.js
 │   ├── login.js
-│   ├── home.html
-│
+│   ├── home.js
+│   ├── navbar.js│
 └── README.md
 ```
 
