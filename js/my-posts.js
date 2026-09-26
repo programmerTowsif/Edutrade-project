@@ -365,7 +365,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const image =
             post.image ||
-            "../images/default-product.jpg";
+            "../images/anas.jpeg";
 
 
         // =================================
