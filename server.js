@@ -1,21 +1,26 @@
  
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
 // =====================================
 // MIDDLEWARE
 // =====================================
+ 
 
+// Project-এর root folder serve করবে
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Frontend files serve করার জন্য
-app.use(express.static(__dirname));
-
-
+app.use("/css", express.static(path.join(__dirname, "css")));
+app.use("/js", express.static(path.join(__dirname, "js")));
+app.use("/images", express.static(path.join(__dirname, "images")));
 // =====================================
 // TEMPORARY DATA
 // =====================================
@@ -94,7 +99,19 @@ let nextPostId = 4;
 // =====================================
 // CREATE USER - POST
 // =====================================
+app.use("/pages", express.static(path.join(__dirname, "pages")));
 
+// Serve JavaScript files
+app.use("/js", express.static(path.join(__dirname, "js")));
+
+// Serve navbar and footer components
+app.use("/components", express.static(path.join(__dirname, "components")));
+
+// Homepage
+app.get("/", (req, res) => {
+    res.redirect("/pages/index.html");
+});
+ 
 app.post("/api/users", (req, res) => {
 
     const {
@@ -1282,38 +1299,14 @@ app.delete("/api/posts/:id", (req, res) => {
 // START SERVER
 // =====================================
 
-app.listen(PORT, () => {
-
-    console.log("");
-
-    console.log(
-        "================================="
-    );
-
-    console.log(
-        "EduTrade Server Started"
-    );
-
-    console.log(
-        "================================="
-    );
-
-    console.log(
-        `Server: http://localhost:${PORT}`
-    );
-
-    console.log(
-        `Register: http://localhost:${PORT}/pages/register.html`
-    );
-
-    console.log(
-        "================================="
-    );
-
-    console.log("");
-
+app.listen(PORT, "0.0.0.0", () => {
+    console.log("=================================");
+    console.log("      EduTrade Server Started");
+    console.log("=================================");
+    console.log(`Port: ${PORT}`);
+    console.log("Homepage: /");
+    console.log("Register: /pages/register.html");
+    console.log("=================================");
 });
- 
-
  // data flow 
  

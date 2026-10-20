@@ -1,7 +1,8 @@
+
 {
   "name": "edutrade-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "EduTrade student marketplace",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
