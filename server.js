@@ -19,14 +19,76 @@ app.use(express.static(__dirname));
 // =====================================
 // TEMPORARY DATA
 // =====================================
+let users = [
+    {
+        id: 1,
+        fullName: "Towsif",
+        email: "towsif@example.com",
+        studentId: "PUC-1241",
+        password: "demo12345",
+        posts: []
+    },
+    {
+        id: 2,
+        fullName: "Sadaf",
+        email: "sadaf@example.com",
+        studentId: "PUC-1242",
+        password: "demo12345",
+        posts: []
+    }
+];
 
-// Users
-let users = [];
-let nextId = 1;
+let nextId = 3;
 
-// Posts
-let posts = [];
-let nextPostId = 1;
+let posts = [
+    {
+        postId: 1,
+        userId: 1,
+        authorName: "Towsif",
+        title: "Selling CSE Books",
+        listingType: "Sell",
+        category: "Books",
+        price: 500,
+        condition: "Used",
+        contact: "01700000000",
+        location: "Chittagong",
+        description: "CSE textbooks available.",
+        image: "https://imgs.search.brave.com/7ne0QsX_x0rrOSDell03-MQwQueZgKRRM_P4AjLmShQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zaHV0/dGVyZmx5LndpZGVu/Lm5ldC9jb250ZW50/LzV2NzBlZWQxNWsv/d2VicC9zeWVjbTEy/MDlfcGJfeWlyX2J1/bGtfcGJzXzU0NHgz/NjAud2VicD9xdWFs/aXR5PTEwMCZzZmx5/X253PTEwODgmc2Zs/eV9uaD03MjA",
+        createdAt: "2026-10-18"
+    },
+    {
+        postId: 2,
+        userId: 2,
+        authorName: "Sadaf",
+        title: "Calculator for Rent",
+        listingType: "Rent",
+        category: "Electronics",
+        price: 100,
+        condition: "Good",
+        contact: "01800000000",
+        location: "Premier University",
+        description: "Scientific calculator for rent.",
+        image: "https://imgs.search.brave.com/RfdtryYZ5jAoX7nszoPqHiWDG69B2GTCUS4bzoA51Ks/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9zY2ll/bnRpZmljLWNhbGN1/bGF0b3ItbWF0aC10/ZXh0Ym9vay00NTI1/NjY4LmpwZw",
+        createdAt: "2026-10-18"
+    },
+    {
+        postId: 3,
+        userId: 2,
+        authorName: "Sadaf",
+        title: "Lost ID Card",
+        listingType: "Lost",
+        category: "Lost & Found",
+        price: 0,
+        condition: "Lost",
+        contact: "01800000000",
+        location: "Campus",
+        description: "University ID card lost.",
+        image: "https://imgs.search.brave.com/OyAN8rP7UhuiwNtpmh7K3dsTR1-bcOuIjo_4aMh7xK8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9lZGl0/Lm9yZy9lZGl0b3Iv/anNvbi8yMDI2LzA2/LzI1L2UvNC9lNDZk/ZmVmMDViZjAxYTU4/NDE3Y2NkNjJjMzMz/ZmI5MS53ZWJw",
+        createdAt: "2026-10-18"
+    }
+];
+
+let nextPostId = 4;
 
 
 // =====================================
