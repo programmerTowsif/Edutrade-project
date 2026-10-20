@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // GET POSTS FROM BACKEND
     // =====================================
 
-    fetch("http://localhost:3000/api/posts")
+    fetch("/api/posts")
 
         .then(response => {
 

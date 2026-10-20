@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         try {
 
             const response = await fetch(
-                "http://localhost:3000/api/posts"
+                "/api/posts"
             );
 
             if (!response.ok) {
@@ -589,7 +589,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 const response =
                     await fetch(
-                        `http://localhost:3000/api/users/${user.id}`,
+                        `/api/users/${user.id}`,
                         {
                             method: "PUT",
 

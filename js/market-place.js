@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const response =
                 await fetch(
-                    "http://localhost:3000/api/posts"
+                    "/api/posts"
                 );
 
 
@@ -1146,7 +1146,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const response =
                 await fetch(
-                    `http://localhost:3000/api/posts/${postId}`,
+                    `/api/posts/${postId}`,
                     {
                         method: "DELETE",
 

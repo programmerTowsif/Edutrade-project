@@ -74,7 +74,7 @@ function loadWishlist() {
     // GET POSTS FROM SERVER
     // =====================================
 
-    fetch("http://localhost:3000/api/posts")
+    fetch("/api/posts")
 
         .then(response => {
 

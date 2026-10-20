@@ -53,7 +53,7 @@ registerForm.addEventListener("submit", async function (event) {
     try {
 
         const response = await fetch(
-            "http://localhost:3000/api/users",
+            "/api/users",
             {
                 method: "POST",
                 headers: {

@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const response =
                 await fetch(
-                    `http://localhost:3000/api/posts/${editPostId}`
+                    `/api/posts/${editPostId}`
                 );
 
             const data =
@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     response =
                         await fetch(
-                            `http://localhost:3000/api/posts/${editPostId}`,
+                            `/api/posts/${editPostId}`,
                             {
                                 method: "PUT",
 
@@ -294,7 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     response =
                         await fetch(
-                            "http://localhost:3000/api/posts",
+                            "/api/posts",
                             {
                                 method: "POST",
 

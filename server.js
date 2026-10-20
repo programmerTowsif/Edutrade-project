@@ -1,11 +1,35 @@
  
 const express = require("express");
-const cors = require("cors");
 const path = require("path");
+const crypto = require("crypto");
 require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+function publicUser(user) {
+    const { password, ...safeUser } = user;
+    return safeUser;
+}
+
+function hashPassword(password) {
+    const salt = crypto.randomBytes(16).toString("hex");
+    const hash = crypto.scryptSync(password, salt, 64).toString("hex");
+    return `${salt}:${hash}`;
+}
+
+function verifyPassword(password, storedPassword) {
+    const [salt, hash] = String(storedPassword).split(":");
+    if (!salt || !hash) {
+        return false;
+    }
+
+    const passwordHash = crypto.scryptSync(password, salt, 64).toString("hex");
+    return crypto.timingSafeEqual(
+        Buffer.from(hash, "hex"),
+        Buffer.from(passwordHash, "hex")
+    );
+}
 
 
 // =====================================
@@ -14,7 +38,6 @@ const PORT = process.env.PORT || 3000;
  
 
 // Project-এর root folder serve করবে
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -30,7 +53,7 @@ let users = [
         fullName: "Towsif",
         email: "towsif@example.com",
         studentId: "PUC-1241",
-        password: "demo12345",
+        password: hashPassword("demo12345"),
         posts: []
     },
     {
@@ -38,7 +61,7 @@ let users = [
         fullName: "Sadaf",
         email: "sadaf@example.com",
         studentId: "PUC-1242",
-        password: "demo12345",
+        password: hashPassword("demo12345"),
         posts: []
     }
 ];
@@ -148,6 +171,15 @@ app.post("/api/users", (req, res) => {
         });
     }
 
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+        return res.status(400).json({
+            success: false,
+            message: "Please enter a valid email address"
+        });
+    }
+
 
   
 
@@ -246,7 +278,7 @@ app.post("/api/users", (req, res) => {
 
         department,
 
-        password,
+        password: hashPassword(password),
 
         profileImage:
             profileImage || "",
@@ -264,10 +296,6 @@ app.post("/api/users", (req, res) => {
     users.push(newUser);
 
 
-    console.log("New user registered:");
-    console.log(newUser);
-
-
     // -----------------------------
     // Success response
     // -----------------------------
@@ -279,7 +307,7 @@ app.post("/api/users", (req, res) => {
         message:
             "Account created successfully",
 
-        user: newUser
+        user: publicUser(newUser)
 
     });
 
@@ -298,7 +326,7 @@ app.get("/api/users", (req, res) => {
 
         count: users.length,
 
-        users: users
+        users: users.map(publicUser)
 
     });
 
@@ -338,7 +366,7 @@ app.get("/api/users/:id", (req, res) => {
 
         success: true,
 
-        user: user
+        user: publicUser(user)
 
     });
 
@@ -541,7 +569,7 @@ app.put("/api/users/:id", (req, res) => {
 
 
         user.password =
-            password;
+            hashPassword(password);
 
     }
 
@@ -569,7 +597,7 @@ app.put("/api/users/:id", (req, res) => {
         message:
             "User updated successfully",
 
-        user: user
+        user: publicUser(user)
 
     });
 
@@ -616,7 +644,7 @@ app.delete("/api/users/:id", (req, res) => {
         message:
             "User deleted successfully",
 
-        user: deletedUser
+        user: publicUser(deletedUser)
 
     });
 
@@ -633,12 +661,6 @@ app.post("/api/login", (req, res) => {
         email,
         password
     } = req.body;
-
-
-    console.log("LOGIN REQUEST:");
-    console.log("Email:", email);
-    console.log("Password:", password);
-    console.log("Users:", users);
 
 
     // -----------------------------
@@ -691,9 +713,7 @@ app.post("/api/login", (req, res) => {
     // Check password
     // -----------------------------
 
-    if (user.password !== password) {
-
-        console.log("WRONG PASSWORD");
+    if (!verifyPassword(password, user.password)) {
 
         return res.status(401).json({
 
@@ -705,9 +725,6 @@ app.post("/api/login", (req, res) => {
         });
 
     }
-
-
-    console.log("LOGIN SUCCESS");
 
 
     // -----------------------------
@@ -1299,14 +1316,13 @@ app.delete("/api/posts/:id", (req, res) => {
 // START SERVER
 // =====================================
 
-app.listen(PORT, "0.0.0.0", () => {
-    console.log("=================================");
-    console.log("      EduTrade Server Started");
-    console.log("=================================");
-    console.log(`Port: ${PORT}`);
-    console.log("Homepage: /");
-    console.log("Register: /pages/register.html");
-    console.log("=================================");
-});
+if (require.main === module) {
+    app.listen(PORT, "0.0.0.0", () => {
+        console.log("EduTrade Server Started");
+        console.log(`Port: ${PORT}`);
+    });
+}
+
+module.exports = app;
  // data flow 
  
