@@ -99,14 +99,17 @@ let nextPostId = 4;
 // =====================================
 // CREATE USER - POST
 // =====================================
-app.use(
-    "/pages",
-    express.static(path.join(__dirname, "pages"))
-);
+app.use("/pages", express.static(path.join(__dirname, "pages")));
+
+// Serve JavaScript files
+app.use("/js", express.static(path.join(__dirname, "js")));
+
+// Serve navbar and footer components
+app.use("/components", express.static(path.join(__dirname, "components")));
 
 // Homepage
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "pages", "index.html"));
+    res.redirect("/pages/index.html");
 });
  
 app.post("/api/users", (req, res) => {
