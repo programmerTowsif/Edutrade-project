@@ -1282,34 +1282,18 @@ app.delete("/api/posts/:id", (req, res) => {
 // START SERVER
 // =====================================
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
 
     console.log("");
+    console.log("=================================");
+    console.log("      EduTrade Server Started");
+    console.log("=================================");
 
-    console.log(
-        "================================="
-    );
+    console.log(`Port: ${PORT}`);
+    console.log(`Local: http://localhost:${PORT}`);
+    console.log(`Register: http://localhost:${PORT}/pages/register.html`);
 
-    console.log(
-        "EduTrade Server Started"
-    );
-
-    console.log(
-        "================================="
-    );
-
-    console.log(
-        `Server: http://localhost:${PORT}`
-    );
-
-    console.log(
-        `Register: http://localhost:${PORT}/pages/register.html`
-    );
-
-    console.log(
-        "================================="
-    );
-
+    console.log("=================================");
     console.log("");
 
 });
